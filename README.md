@@ -27,3 +27,4 @@ I only tested this on OS X although I suspect it should be fairly portable, minu
 5. Potentional to make it do a whole show instead of just one season (do all ten seasons of a show that are in individual folders within a top folder)
 6. maybe add a gui where you can pick the directory, IMDB ID, and Season? (stretch goal, I guess)
 7. anything else that seems cool
+8. update it to use 2 spaces instead of tabs for Damien
