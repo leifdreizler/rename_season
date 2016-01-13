@@ -1,9 +1,9 @@
 # rename_season
 A simple script to rename ill formatted episode titles in a season of a TV show
-for example:
-Its.Always.Sunny.In.Philadelphia.S05E08.720p.BluRay.x264-SiNNERS.mkv
-would become
-It's Always Sunny In Philadelphia S05E08 Paddy's Pub Home of the Original Kitten Mittens [720p].mkv
+for example:  
+Its.Always.Sunny.In.Philadelphia.S05E08.720p.BluRay.x264-SiNNERS.mkv  
+**would become**  
+It's Always Sunny In Philadelphia S05E08 Paddy's Pub Home of the Original Kitten Mittens [720p].mkv  
 
 ###Basic Usage:
 fill out the source_dir, imdb_id, season_number at the bottom of the file with appropriate values and run it!
