@@ -19,7 +19,7 @@ I only tested this on OS X although I suspect it should be fairly portable, minu
 
 1. At least some basic error checking
   * files in directory == episodes in the season? (allow user to correct times when there is a "double episode" such as a finale i.e. S01E15E16 cuz that will currently bork things) 
-  * fuzzy search to detect a complete mismatch
+  * fuzzy search to detect a complete mismatch~~, or at least provide the user w/ the ability to review the changes~~ DONE!
   * check for things like the IMDB ID not existing, season not existing, the folder/files not existing, etc
 2. better input sanitization (look for things that might mess up the file on the OS, characters like :\/ etc)
 3. option to replace all spaces with periods (some people like that format)
@@ -29,5 +29,6 @@ I only tested this on OS X although I suspect it should be fairly portable, minu
 7. anything else that seems cool
 8. update it to use 2 spaces instead of tabs for Damien
 9. Let the user choose if they want to match based off of S01E01 naming convention to allow easier matching to overcome poor ordering (currently alpha order must be perfect for dir.glob)
-  * consider trying to convert all the files in the directory to lowercase first? This matters for dir.glob
+  * ~~consider trying to convert all the files in the directory to lowercase first? This matters for dir.glob~~ DONE! Users are no prompted to review a case-insensitive regex match that looks for the same S##E## string the old file and proposed name
 10. Overcome duplicate IMDB entries in the same season (i.e. S07E08 of Always Sunny)
+11. Refactor the check and rename functions to be more similar, or part of the same function so that differences don't arise in the future
