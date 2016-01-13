@@ -32,3 +32,4 @@ I only tested this on OS X although I suspect it should be fairly portable, minu
   * ~~consider trying to convert all the files in the directory to lowercase first? This matters for dir.glob~~ DONE! Users are no prompted to review a case-insensitive regex match that looks for the same S##E## string the old file and proposed name
 10. Overcome duplicate IMDB entries in the same season (i.e. S07E08 of Always Sunny)
 11. Refactor the check and rename functions to be more similar, or part of the same function so that differences don't arise in the future
+12. Consider changing the human matching to omit the path? Might make it easier to review
