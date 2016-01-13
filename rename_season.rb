@@ -68,7 +68,7 @@ end
 
 
 def season_iterator(source_dir, episode_array)
-    files = Dir.glob(source_dir + "/*").sort
+    files = Dir.glob(source_dir + "/*").sort_by{|word| word.downcase}
 
     files.zip(episode_array).each do |file, episode|
         check_rename_file(file, episode)
