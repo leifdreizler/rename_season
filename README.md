@@ -19,7 +19,7 @@ I only tested this on OS X although I suspect it should be fairly portable, minu
 
 1. At least some basic error checking
   * files in directory == episodes in the season? (allow user to correct times when there is a "double episode" such as a finale i.e. S01E15E16 cuz that will currently bork things) 
-  * fuzzy search to detect a complete mismatch, or at least provide the user w/ the ability to review the changes
+  * fuzzy search to detect a complete mismatch
   * check for things like the IMDB ID not existing, season not existing, the folder/files not existing, etc
 2. better input sanitization (look for things that might mess up the file on the OS, characters like :\/ etc)
 3. option to replace all spaces with periods (some people like that format)
