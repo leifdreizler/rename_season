@@ -30,12 +30,31 @@ def rename_file(original_file, episode_title)
 	path_and_file = File.rename(original_file, File.dirname(original_file) + "/" + new_filename.gsub(/:/,''))
 	return path_and_file
 end
+	
+def check_rename(files, episode_array)
+	total_files = files.zip(episode_array).length
+	matched_files = 0
 
-def check_rename_file(original_file, episode_title)	
-	new_filename = episode_title + quality(original_file) + File.extname(original_file)
-	path_and_file = File.dirname(original_file) + "/" + new_filename.gsub(/:/,'')
-	puts "renaming... \n" + original_file + "\n" + path_and_file + "\n"
+	files.zip(episode_array).each do |original_file, episode_title|
+		new_filename = episode_title + quality(original_file) + File.extname(original_file)
+		path_and_file = File.dirname(original_file) + "/" + new_filename.gsub(/:/,'')
+
+		if new_filename.match(/(s\d\de\d\d)/i).to_s == (path_and_file.match(/(s\d\de\d\d)/i)).to_s
+	 		matched_files += 1
+		end
+
+		puts "proposed rename... \n" + original_file + "\n" + path_and_file + "\n"
+	end
+
+	puts total_files.to_s + " checked, " + matched_files.to_s + " matched (should be equal)"
+	print "Everything look ok? "
+	answer = gets.chomp
+
+	if answer.to_s != "yes"
+		exit
+	end
 end
+
 
 def title_builder(show, season, episode_number, episode_name)
          filename = show + ' S' + pad(season) + 'E' + pad(episode_number) + ' ' + episode_name
@@ -70,16 +89,7 @@ end
 def season_iterator(source_dir, episode_array)
     files = Dir.glob(source_dir + "/*").sort_by{|word| word.downcase}
 
-    files.zip(episode_array).each do |file, episode|
-        check_rename_file(file, episode)
-    end
-
-	print "\n\nEverything look ok? "
-	answer = gets.chomp
-
-	if answer.to_s != "yes"
-		exit
-	end
+    check_rename(files, episode_array)
 
     files.zip(episode_array).each do |file, episode|
         rename_file(file, episode)
