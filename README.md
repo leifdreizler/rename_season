@@ -28,3 +28,6 @@ I only tested this on OS X although I suspect it should be fairly portable, minu
 6. maybe add a gui where you can pick the directory, IMDB ID, and Season? (stretch goal, I guess)
 7. anything else that seems cool
 8. update it to use 2 spaces instead of tabs for Damien
+9. Let the user choose if they want to match based off of S01E01 naming convention to allow easier matching to overcome poor ordering (currently alpha order must be perfect for dir.glob)
+  * consider trying to convert all the files in the directory to lowercase first? This matters for dir.glob
+10. Overcome duplicate IMDB entries in the same season (i.e. S07E08 of Always Sunny)
