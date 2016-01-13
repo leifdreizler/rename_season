@@ -13,6 +13,8 @@ This is the first version of my first ruby script. It probably has mistakes you 
 
 Use at your own risk, the most likely worst case scenario is you accidently rename some stuff incorrectly, but things should be OK if you get those 3 variables setup correctly and (num files == episodes in the season)
 
+I only tested this on OS X although I suspect it should be fairly portable, minus illegal file character checking? I guess I don't really know ;p
+
 ###Improvments for the future in no particular order:  
 
 1. At least some basic error checking
