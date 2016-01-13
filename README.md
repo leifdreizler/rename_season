@@ -26,10 +26,10 @@ I only tested this on OS X although I suspect it should be fairly portable, minu
 4. option to exclude the [quality]
 5. Potentional to make it do a whole show instead of just one season (do all ten seasons of a show that are in individual folders within a top folder)
 6. maybe add a gui where you can pick the directory, IMDB ID, and Season? (stretch goal, I guess)
-7. anything else that seems cool
-8. update it to use 2 spaces instead of tabs for Damien
-9. Let the user choose if they want to match based off of S01E01 naming convention to allow easier matching to overcome poor ordering (currently alpha order must be perfect for dir.glob)
+7. ~~update it to use 2 spaces instead of tabs for Damien~~
+8. Let the user choose if they want to match based off of S01E01 naming convention to allow easier matching to overcome poor ordering (currently alpha order must be perfect for dir.glob)
   * ~~consider trying to convert all the files in the directory to lowercase first? This matters for dir.glob~~ DONE! Users are nwo prompted to review a case-insensitive regex match that looks for the same S##E## string the old file and proposed name
-10. Overcome duplicate IMDB entries in the same season (i.e. S07E08 of Always Sunny)
-11. Refactor the check and rename functions to be more similar, or part of the same function so that differences don't arise in the future
-12. Consider changing the human matching to omit the path? Might make it easier to review
+9. Overcome duplicate IMDB entries in the same season (i.e. S07E08 of Always Sunny)
+10. Refactor the check and rename functions to be more similar, or part of the same function so that differences don't arise in the future
+11. Consider changing the human matching to omit the path? Might make it easier to review
+12. anything else that seems cool
