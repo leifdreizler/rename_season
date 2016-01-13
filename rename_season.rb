@@ -39,6 +39,8 @@ def check_rename(files, episode_array)
     new_filename = episode_title + quality(original_file) + File.extname(original_file)
     path_and_file = File.dirname(original_file) + "/" + new_filename.gsub(/:/,'')
 
+    # quick check to see if the s##e## string in the original file and the proposed filename match
+    # this provides some quick and basic verification that things are lined up
     if new_filename.match(/(s\d\de\d\d)/i).to_s == (path_and_file.match(/(s\d\de\d\d)/i)).to_s
        matched_files += 1
     end
@@ -83,8 +85,6 @@ def quality(file)
   end
 end
 
-
-
 def season_iterator(source_dir, episode_array)
   files = Dir.glob(source_dir + "/*").sort_by{|word| word.downcase}
   
@@ -103,4 +103,3 @@ season_number = #string of season number
 season_info = get_season_info(imdb_id, season_number)
 season_array = format_season_info(season_info)
 season_iterator(source_dir, season_array)
-
