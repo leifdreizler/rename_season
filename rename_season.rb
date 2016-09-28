@@ -2,6 +2,8 @@
 
 require 'net/http'
 require 'json'
+require 'optparse'
+require 'csv'
 
 def get_season_info(id, season)
   source='http://www.omdbapi.com/?i=' + id + '&Season=' + season
@@ -58,7 +60,7 @@ def check_rename(files, episode_array)
 end
 
 def title_builder(show, season, episode_number, episode_name)
-  filename = show + ' S' + pad(season) + 'E' + pad(episode_number) + ' ' + episode_name
+  filename = show + ' S' + pad(season) + 'E' + pad(episode_number) + ' ' + episode_name.gsub("/"," ")
   return filename
 end
 
@@ -95,11 +97,32 @@ def season_iterator(source_dir, episode_array)
   end       
 end
 
+def parse_seasons(seasons)
+  season_list = seasons.split(/\s*,\s*/)
 
-source_dir = #string to directory, don't put trailing /
-imdb_id = #string of IMDB ID, the part after title in: http://www.imdb.com/title/tt0472954 
-season_number = #string of season number
+  season_list.each_with_index do |season, index|
+    if season.include? "-"
+      (season[0]..season[2]).each do |x| 
+        season_list.push(x)
+      end
+    season_list.delete_at(index)
+    end
+  end
 
-season_info = get_season_info(imdb_id, season_number)
-season_array = format_season_info(season_info)
-season_iterator(source_dir, season_array)
+  return season_list.sort
+end
+
+def iterate_seasons(seasons_list, imdb_id, source_dir)
+  if seasons_list.length == 1
+    season_info = get_season_info(imdb_id, seasons_list[0])
+    season_array = format_season_info(season_info)
+    season_iterator(source_dir, season_array)
+  end
+end
+
+source_dir = "/Volumes/Death Star/TV Shows/Mr. Robot/"#string to directory, don't put trailing /
+imdb_id = "tt4158110" #string of IMDB ID, the part after title in: http://www.imdb.com/title/tt0472954 
+seasons = "1, 2" #string of season number. 2, 3, 4-5, or just a single season. 
+#If doing multiple seasons, you need to have the source_dir be a dir of dirs
+
+iterate_seasons(parse_seasons(seasons), imdb_id, source_dir)
