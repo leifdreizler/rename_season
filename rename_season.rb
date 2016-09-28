@@ -5,6 +5,7 @@ require 'json'
 require 'optparse'
 require 'csv'
 
+# retrieves season info from IMDB
 def get_season_info(id, season)
   source='http://www.omdbapi.com/?i=' + id + '&Season=' + season
   
@@ -14,6 +15,7 @@ def get_season_info(id, season)
   return res.body
 end
 
+# formats info from IMDB
 def format_season_info(json)
   blob = JSON.parse(json)  
   title = blob["Title"]
@@ -27,12 +29,14 @@ def format_season_info(json)
   return formatted_season_info
 end
 
+# Renames files based on IMDB info
 def rename_file(original_file, episode_title)  
   new_filename = episode_title + quality(original_file) + File.extname(original_file)
   path_and_file = File.rename(original_file, File.dirname(original_file) + "/" + new_filename.gsub(/:/,''))
   return path_and_file
 end
-  
+
+# Does some basic checking to make sure the files in the folder roughly match w/ IMDB info  
 def check_rename(files, episode_array)
   total_files = files.zip(episode_array).length
   matched_files = 0
@@ -59,8 +63,9 @@ def check_rename(files, episode_array)
   end
 end
 
+# Helps build titles using standard schema
 def title_builder(show, season, episode_number, episode_name)
-  filename = show + ' S' + pad(season) + 'E' + pad(episode_number) + ' ' + episode_name.gsub("/"," ")
+  filename = show + ' S' + season.rjust(2,'0') + 'E' + episode_number.rjust(2,'0') + ' ' + episode_name.gsub("/"," ")
   return filename
 end
 
@@ -155,5 +160,10 @@ source_dir = ""#string to directory, don't put trailing /
 imdb_id = "" #string of IMDB ID, the part after title in: http://www.imdb.com/title/tt0472954 
 seasons = "" #string of season number. 2, 3, 4-5, or just a single season. 
 #If doing multiple seasons, you need to have the source_dir be a dir of dirs
+
+#clean training /
+if source_dir[-1] == "/"
+  source_dir = source_dir[-1]
+end
 
 iterate_seasons(parse_seasons(seasons), imdb_id, source_dir)
