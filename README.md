@@ -5,15 +5,15 @@ Its.Always.Sunny.In.Philadelphia.S05E08.720p.BluRay.x264-SiNNERS.mkv
 **would become**  
 It's Always Sunny In Philadelphia S05E08 Paddy's Pub Home of the Original Kitten Mittens [720p].mkv  
 
-###Basic Usage:
+###Basic Usage:  
 Fill out the source_dir, imdb_id, seasons at the bottom of the file with appropriate values and run it!
 
-For multiple seasons of the same show, do the following:
-1) set source_dir to the parent of all folders. ex. /Mr. Robot, with child directories of /Mr. Robot/Season 1 and /Mr. Robot/Season2
-2) set seasons at the bottom of the file to have the same number. ex. "1-2" or "1,2" (also supports the form: "1,2,4-6")
+For multiple seasons of the same show, do the following:  
+1) set source_dir to the parent of all folders. ex. /Mr. Robot, with child directories of /Mr. Robot/Season 1 and /Mr. Robot/Season2  
+2) set seasons at the bottom of the file to have the same number. ex. "1-2" or "1,2" (also supports: "1,2,4-6")
 
 
-###Warnings, etc:
+###Warnings, etc:  
 This is my first ruby script. It probably has mistakes you would expect given that information. If you have cooler (but still readable) ways to do something, comments on Ruby style, etc. I'm more than open to feedback and want to improve.
 
 Use at your own risk, the most likely worst case scenario is you accidently rename some stuff incorrectly, but things should be OK if you get those 3 variables setup correctly and (num files == episodes in the season)
