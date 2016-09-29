@@ -14,7 +14,7 @@ For multiple seasons of the same show, do the following:
 
 
 ###Warnings, etc:
-This is the first ruby script. It probably has mistakes you would expect given that information. If you have cooler (but still readable) ways to do something, comments on Ruby style, etc. I'm more than open to feedback and want to improve.
+This is my first ruby script. It probably has mistakes you would expect given that information. If you have cooler (but still readable) ways to do something, comments on Ruby style, etc. I'm more than open to feedback and want to improve.
 
 Use at your own risk, the most likely worst case scenario is you accidently rename some stuff incorrectly, but things should be OK if you get those 3 variables setup correctly and (num files == episodes in the season)
 
